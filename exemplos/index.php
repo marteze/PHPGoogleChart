@@ -35,7 +35,6 @@ $oGraficoTeste->addDado(array(2015, 5, 4, 15));
 $oGraficoTeste->addDado(array(2016, 4, 5, 18));
 echo $oGraficoTeste;
 
-
 $oGraficoTeste = new GoogleChartLine("teste2", 800, 400);
 $oGraficoTeste->setTitulo("Quantidade de servidores na informatica");
 $oGraficoTeste->setTituloEixoHorizontal("Ano", "#000", null, null, true);
