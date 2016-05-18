@@ -1,10 +1,14 @@
 <?php
+
+namespace PHPGoogleChart; 
+
 /**
  * Classe abstrata com comportamentos padrao para geracao de graficos Google Charts.
  * Veja mais detalhes em https://developers.google.com/chart .
  * @author Rafael Marteze
  */
-abstract class GoogleChart {
+abstract class GoogleChart 
+{
 	static protected $bCriouEventoRezise = false;
 	
 	protected $sId = "";
@@ -23,7 +27,8 @@ abstract class GoogleChart {
 	 * @param number $iLargura Largura do grafico em pixels.
 	 * @param number $iAltura Altura do grafico em pixels
 	 */
-	public function __construct($sId, $iLargura = 900, $iAltura = 500) {
+	public function __construct($sId, $iLargura = 900, $iAltura = 500) 
+	{
 		$this->setId($sId);
 		$this->setLargura($iLargura);
 		$this->setAltura($iAltura);
@@ -32,16 +37,17 @@ abstract class GoogleChart {
 	/**
 	 * Metodo responsavel por gerar os dados do grafico no formato aceito como parametro pelo metodo "addRows" da classe "google.visualization.DataTable".
 	 * @example <pre>
-	 * protected function gerarJsDados() {
-	 * 	$sRetornoJs  = "[";
-	 * 	$sRetornoJs .= "['Mushrooms', 3],";
-	 * 	$sRetornoJs .= "['Onions', 1],";
-	 * 	$sRetornoJs .= "['Olives', 1],";
-	 * 	$sRetornoJs .= "['Zucchini', 1],";
-	 * 	$sRetornoJs .= "['Pepperoni', 2]";
-	 * 	$sRetornoJs .= "]";
-	 *
-	 * 	return $sRetornoJs;
+	 * protected function gerarJsDados() 
+	 * {
+	 *   $sRetornoJs  = "[";
+	 *   $sRetornoJs .= "['Mushrooms', 3],";
+	 *   $sRetornoJs .= "['Onions', 1],";
+	 *   $sRetornoJs .= "['Olives', 1],";
+	 *   $sRetornoJs .= "['Zucchini', 1],";
+	 *   $sRetornoJs .= "['Pepperoni', 2]";
+	 *   $sRetornoJs .= "]";
+	 *   
+	 *   return $sRetornoJs;
 	 * }
 	 */
 	abstract protected function gerarJsDados();
@@ -50,7 +56,8 @@ abstract class GoogleChart {
 	 * Define o Id do grafico.
 	 * @param string $sId
 	 */
-	public function setId($sId) {
+	public function setId($sId) 
+	{
 		$this->sId = $sId;
 	}
 	
@@ -58,7 +65,8 @@ abstract class GoogleChart {
 	 * Pega o Id do grafico.
 	 * @return string
 	 */
-	public function getId() {
+	public function getId() 
+	{
 		return $this->sId;
 	}
 	
@@ -66,7 +74,8 @@ abstract class GoogleChart {
 	 * Define o nome da classe dentro do "google.visualization" que ira gerar o grafico.
 	 * @param string $sClasseGoogleVisualization
 	 */
-	public function setClasseGoogleVisualization($sClasseGoogleVisualization) {
+	public function setClasseGoogleVisualization($sClasseGoogleVisualization) 
+	{
 		$this->sClasseGoogleVisualization = $sClasseGoogleVisualization;
 	}
 	
@@ -74,7 +83,8 @@ abstract class GoogleChart {
 	 * Pega o nome da classe dentro do "google.visualization" que ira gerar o grafico.
 	 * @return string
 	 */
-	public function getClasseGoogleVisualization() {
+	public function getClasseGoogleVisualization() 
+	{
 		return $this->sClasseGoogleVisualization;
 	}
 	
@@ -82,7 +92,8 @@ abstract class GoogleChart {
 	 * Define a largura do grafico.
 	 * @param integer $iLargura Largura do grafico em pixels.
 	 */
-	public function setLargura($iLargura, $sUnidade = "px") {
+	public function setLargura($iLargura, $sUnidade = "px") 
+	{
 		$this->iLargura = $iLargura;
 		$this->sUnidadeLargura = $sUnidade;
 	}
@@ -91,11 +102,13 @@ abstract class GoogleChart {
 	 * Pega a largura do grafico.
 	 * @return integer
 	 */
-	public function getLargura() {
+	public function getLargura() 
+	{
 		return $this->iLargura;
 	}
 	
-	public function getUnidadeLargura() {
+	public function getUnidadeLargura() 
+	{
 		return $this->sUnidadeLargura;
 	}
 	
@@ -103,7 +116,8 @@ abstract class GoogleChart {
 	 * Define a altura do grafico.
 	 * @param integer $iAltura Altura do grafico em pixels.
 	 */
-	public function setAltura($iAltura, $sUnidade = "px") {
+	public function setAltura($iAltura, $sUnidade = "px") 
+	{
 		$this->iAltura = $iAltura;
 		$this->sUnidadeAltura = $sUnidade;
 	}
@@ -112,11 +126,13 @@ abstract class GoogleChart {
 	 * Pega a altura do grafico.
 	 * @return integer
 	 */
-	public function getAltura() {
+	public function getAltura() 
+	{
 		return $this->iAltura;
 	}
 	
-	public function getUnidadeAltura() {
+	public function getUnidadeAltura() 
+	{
 		return $this->sUnidadeAltura;
 	}
 	
@@ -125,7 +141,8 @@ abstract class GoogleChart {
 	 * @param string $sNome Nome da opcao.
 	 * @param mixed $mValor Valor da opcao.
 	 */
-	protected function setOpcao($sNome, $mValor) {
+	protected function setOpcao($sNome, $mValor) 
+	{
 		$this->aOpcoes[$sNome] = $mValor;
 	}
 	
@@ -134,7 +151,8 @@ abstract class GoogleChart {
 	 * @param string $sNome Nome da opcao.
 	 * @return multitype:
 	 */
-	protected function getOpcao($sNome) {
+	protected function getOpcao($sNome) 
+	{
 		return $this->aOpcoes[$sNome];
 	}
 	
@@ -142,7 +160,8 @@ abstract class GoogleChart {
 	 * Pega a lista de opcoes ja definidas.
 	 * @return array
 	 */
-	protected function getOpcoes() {
+	protected function getOpcoes() 
+	{
 		return $this->aOpcoes;
 	}
 	
@@ -151,7 +170,8 @@ abstract class GoogleChart {
 	 * @param string $sNome Nome da opcao.
 	 * @param mixed $mValor Valor da opcao.
 	 */
-	protected function addColuna($sNome, $sTipo) {
+	protected function addColuna($sNome, $sTipo) 
+	{
 		$this->aColunas[$sNome] = $sTipo;
 	}
 	
@@ -159,7 +179,8 @@ abstract class GoogleChart {
 	 * Pega o nome das colunas dos dados do grafico.
 	 * @return array
 	 */
-	protected function getColunas() {
+	protected function getColunas() 
+	{
 		return $this->aColunas;
 	}
 	
@@ -167,7 +188,8 @@ abstract class GoogleChart {
 	 * Gera o trecho do javascript que define o valor das opcoes. 
 	 * @return string
 	 */
-	protected function gerarJsOpcoes() {
+	protected function gerarJsOpcoes() 
+	{
 		return json_encode($this->getOpcoes());
 	}
 	
@@ -175,7 +197,8 @@ abstract class GoogleChart {
 	 * Gera o trecho do javascript que define as colunas do grafico.
 	 * @return string
 	 */
-	protected function gerarJsColunas() {
+	protected function gerarJsColunas() 
+	{
 		$sJsRetorno = "";
 		
 		foreach($this->getColunas() as $sNome => $sTipo) {
@@ -189,7 +212,8 @@ abstract class GoogleChart {
 	 * Gera trecho de javascript responsavel por gerar o grafico.
 	 * @return string
 	 */
-	public function gerarJavascript() {
+	public function gerarJavascript() 
+	{
 		$sHtml = "";
 		
 		if (self::$bCriouEventoRezise == false) {
@@ -223,7 +247,8 @@ abstract class GoogleChart {
 	 * Gera trecho de html onde sera exibido o grafico.
 	 * @return string
 	 */
-	public function gerarHtml() {
+	public function gerarHtml() 
+	{
 		$sHtml = "<div id=\"" . $this->getId() . "\" style=\"width: " .$this->getLargura() . $this->getUnidadeLargura() . "; height: " . $this->getAltura() . $this->getUnidadeAltura() . ";\"></div>";
 		
 		return $sHtml;
@@ -233,7 +258,8 @@ abstract class GoogleChart {
 	 * Gerao codigo javascript e HTML do grafico.
 	 * @return string
 	 */
-	public function __toString() {
+	public function __toString() 
+	{
 		$sHtml  = "<script type=\"text/javascript\">\n";
 		$sHtml .= $this->gerarJavascript();
 		$sHtml .= "</script>\n";

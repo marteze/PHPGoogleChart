@@ -1,8 +1,5 @@
 <?php 
-include_once '../classes/GoogleChart.php';
-include_once '../classes/GoogleChartColumn.php';
-include_once '../classes/GoogleChartLine.php';
-include_once '../classes/GoogleChartPie.php';
+require_once __DIR__ . "/../src/autoload.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt">
@@ -17,7 +14,7 @@ google.charts.load('current', {'packages':['corechart']});
 <body>
 <?php
 
-$oGraficoTeste = new GoogleChartColumn("teste1", 800, 400);
+$oGraficoTeste = new PHPGoogleChart\GoogleChartColumn("teste1", 800, 400);
 $oGraficoTeste->setTitulo("Quantidade de servidores na informatica");
 $oGraficoTeste->setTituloEixoHorizontal("Ano", "#000", null, null, true);
 $oGraficoTeste->setEixoHorizontal("#CCC", 7, "", 45);
@@ -35,7 +32,7 @@ $oGraficoTeste->addDado(array(2015, 5, 4, 15));
 $oGraficoTeste->addDado(array(2016, 4, 5, 18));
 echo $oGraficoTeste;
 
-$oGraficoTeste = new GoogleChartLine("teste2", 800, 400);
+$oGraficoTeste = new PHPGoogleChart\GoogleChartLine("teste2", 800, 400);
 $oGraficoTeste->setTitulo("Quantidade de servidores na informatica");
 $oGraficoTeste->setTituloEixoHorizontal("Ano", "#000", null, null, true);
 $oGraficoTeste->setEixoHorizontal("#CCC", 7, "", 45);
@@ -53,7 +50,7 @@ $oGraficoTeste->addDado(array(2015, 5, 4, 15));
 $oGraficoTeste->addDado(array(2016, 4, 5, 18));
 echo $oGraficoTeste;
 
-$oGraficoTeste = new GoogleChartPie("teste3", 800, 300);
+$oGraficoTeste = new PHPGoogleChart\GoogleChartPie("teste3", 800, 300);
 $oGraficoTeste->setTitulo("Quantidade de servidores na informatica");
 $oGraficoTeste->setRotulos("Area", "Quantidade");
 $oGraficoTeste->addDado("Desenvolvimento", 10);
