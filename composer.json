@@ -1,6 +1,7 @@
 {
     "name": "PHPGoogleChart",
     "description": "Projeto de classes em PHP para simplificar a criação de gráficos estatísticos utilizando a API Javascript do Google Charts.",
+    "version": "0.0.1",
     "homepage": "https://github.com/marteze/PHPGoogleChart",
     "authors": [
         {
